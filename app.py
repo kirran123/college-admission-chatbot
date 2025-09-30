@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import os
 
-openai.api_key = os.getenv("OPENAI_API_KEY", "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")
+openai.api_key = os.getenv("OPENAI_API_KEY", "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")
 
 st.set_page_config(page_title="College Admission Chatbot", page_icon="🎓")
 st.title("🎓 College Admission Chatbot (GenAI)")
@@ -33,3 +33,4 @@ if user_input:
         answer = response.choices[0].message.content
     st.session_state.messages.append({"role": "assistant", "content": answer})
     st.chat_message("assistant").write(answer)
+
