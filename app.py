@@ -1,9 +1,10 @@
-import streamlit as st
-import openai
+from dotenv import load_dotenv
 import os
+import openai
 
-openai.api_key = os.getenv("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")
+load_dotenv()  # Automatically loads variables from .env
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
 st.set_page_config(page_title="College Admission Chatbot", page_icon="🎓")
 st.title("🎓 College Admission Chatbot (GenAI)")
 
@@ -33,6 +34,7 @@ if user_input:
         answer = response.choices[0].message.content
     st.session_state.messages.append({"role": "assistant", "content": answer})
     st.chat_message("assistant").write(answer)
+
 
 
 
